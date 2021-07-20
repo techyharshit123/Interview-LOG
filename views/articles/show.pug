@@ -2,16 +2,13 @@ extends ../layouts/main
         
 block Content
     .row
+        - console.log(user)
         - console.log(article)
         //- Code to strip the formatting tags
         - var articlebody=article.body 
         - articlebody = articlebody.replace(/<(?:.|\n)*?>/gm, '')
         .col.s12.m8
             h3=article.title
-                small
-                    | 
-                    a(href=`/articles/edit/${article._id}`)
-                        i.fas.fa-edit
             .card.story
                 .card-content
                     span.card-title=article.time

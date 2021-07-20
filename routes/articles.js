@@ -22,7 +22,8 @@ router.get(`/articles/:id`, ensureAuth, async (req, res) => {
             return res.render('error/404')
 
         res.render('articles/show', {
-            article
+            article,
+            user: req.user
         })
     } catch (err) {
         console.log(err)
@@ -122,6 +123,7 @@ router.get('/articles/user/:userId', ensureAuth, async (req, res) => {
         let userName = articles[0].author
         res.render('articles/userarticles', {
             articles,
+            user: req.user,
             userName
         })
     } catch (err) {

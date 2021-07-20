@@ -20,8 +20,9 @@ block Content
                 .col.s12.m4
                     .card.hoverable
                         .card-image
-                            a.btn-floating.halfway-fab.blue(href=`/articles/edit/${article._id}`)
-                                i.fas.fa-edit.fa-small
+                            - if (article.user._id.toString() == user._id.toString())
+                                a.btn-floating.halfway-fab.blue(href=`/articles/edit/${article._id}`)
+                                    i.fas.fa-edit.fa-small
                         .card-content.center-align
                             h5=article.title    
                             p=articlebody
