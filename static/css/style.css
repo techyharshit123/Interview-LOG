@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fuggles&display=swap");
+* {
+  font-family: open sans;
+}
+.login-container {
+  margin-top: 100px;
+  text-align: center;
+}
+.loginpageimg {
+  width: 300px;
+}
+.tagline2 {
+  font-family: "Dancing Script", cursive;
+}
+.formgroup {
+  margin-top: 50px;
+}
+#cke_textarea1 {
+  margin-top: 40px;
+  /* width: 525px; */
+}
+.fa-small {
+  font-size: 16px !important;
+}
+.btn-float {
+  float: left;
+  margin-right: 10px;
+}
+.cardmannual {
+  margin: auto;
+  width: 600px;
+}
+.homeimg {
+  margin-top: 120px;
+  width: 700px;
+}
+.homespan {
+  margin-top: 250px;
+  font-size: 60px;
+}
+.homerow {
+  height: 590px;
+}

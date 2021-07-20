@@ -1,0 +1,20 @@
+extends layouts/login
+
+block Content
+    .card.horizontal.login-container
+        .card-image
+            img.loginpageimg(src='/static/gallery/login.jpg')
+        .card-stacked
+            h1.center-align
+                i.fas.fa-book-reader
+                |
+                | Interview-LOG
+            .divider
+            .card-content
+                h4.tagline1 Share Your Interview Experience Among Students
+            .card-content
+                h4.tagline2 Let's Give Back To The Community
+            .card-action
+                a.waves-effect.waves-light.btn(href="/auth/google")
+                    i.fab.fa-google.left
+                    | Sign In WITH GOOGLE

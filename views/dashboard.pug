@@ -1,0 +1,33 @@
+extends layouts/main
+
+block Content
+    h3 Hello #{name}
+    p Here are your blogs
+    - if (articles)
+        table.striped
+            thead
+                tr
+                    th Title
+                    th Author
+                    th Date
+            tbody
+                each article in articles
+                    tr
+                        td
+                            a(href="/articles/" +article._id)=article.title
+                        td
+                            span.dash-author=article.author
+                        td 
+                            span=article.time
+                        td
+                            a.btn.btn-float.waves-effect.waves-light(href="/articles/edit/"+article._id)
+                                i.fas.fa-edit.fa-small
+
+                            form#delete-form(action=`/articles/${article._id}` method='POST')
+                                input(type='hidden' name='_method' value='DELETE')
+                                button.btn.red.waves-effect.waves-light(type='submit')
+                                    i.fas.fa-trash
+
+
+    - else
+        | You have not created any blog

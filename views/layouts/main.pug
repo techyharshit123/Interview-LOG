@@ -1,0 +1,45 @@
+doctype html
+html
+    head
+        title Interview-LOG
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        block style
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css") 
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer")   
+        link(rel='stylesheet' href='../../static/css/style.css')
+    body
+        nav.teal.lighten-2
+            .nav-wrapper.container
+                a.brand-logo(href='/') Interview-LOG
+                a.sidenav-trigger(href='#' data-target='mobile-demo')
+                    i.fas.fa-bars
+                ul.right.hide-on-med-and-down
+                    li
+                        a(href='/all_articles') Home
+                    li
+                        a(href='/articles/add') Add Articles
+                    li
+                        a(href='/dashboard') Dashboard
+                    li
+                        a(href='/auth/logout') Logout
+                ul#mobile-demo.sidenav
+                    li
+                        a(href='/all_articles') Home
+                    li
+                        a(href='/articles/add') Add Articles
+                    li
+                        a(href='/dashboard') Dashboard
+                    li
+                        a(href='/auth/logout') Logout
+        .col.s12.m7.container
+            block Content
+        
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.16.1/ckeditor.js" integrity="sha512-2nFxKVmFuBhAR45DBnAANBjtxzf7z0m6wRU7NOquxibA6efrQpUtdjFT4wzqewqTI3/cCNbBzJNUtu1NxjFiKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        script.
+            M.Sidenav.init(document.querySelectorAll('.sidenav'))
+            
+            CKEDITOR.replace('body',{
+                plugins:'wysiwygarea, toolbar, basicstyles, link'
+            })

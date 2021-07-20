@@ -1,0 +1,35 @@
+extends ../layouts/main
+
+block Content
+    h1 Articles from #{userName}
+    - if(articles)
+        .row 
+            each article in articles
+                //- Code to strip the formatting tags
+                - var articlebody=article.body 
+                - articlebody = articlebody.replace(/<(?:.|\n)*?>/gm, '')
+
+                //- Code to truncate the body of the Blog
+                - if (articlebody.length > 100 && articlebody.length > 0)
+                    -let new_str = articlebody + ' '
+                    -new_str = articlebody.substr(0, 100)
+                    -new_str = articlebody.substr(0, new_str.lastIndexOf(' '))
+                    -new_str = new_str.length > 0 ? new_str : articlebody.substr(0, 100)
+                    -articlebody = new_str + '...'
+                
+                .col.s12.m4
+                    .card.hoverable
+                        .card-image
+                            a.btn-floating.halfway-fab.blue(href=`/articles/edit/${article._id}`)
+                                i.fas.fa-edit.fa-small
+                        .card-content.center-align
+                            h5=article.title    
+                            p=articlebody
+                            br
+                            .chip
+                                img(src=`${article.user.image}`)   
+                                a(href="/articles/user/"+article._id)=article.user.displayName
+                        .card-action.center-align
+                            a.btn-grey(href="/articles/"+article._id) Open
+    - else
+        p No articles to display
