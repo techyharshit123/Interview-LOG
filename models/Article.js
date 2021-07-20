@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
-let d = Date(Date.now())
+let d = new Date(Date.now())
+d = d.toString();
 d = d.substring(0, d.length - 31);
+console.log(d)
 const ArticleSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
