@@ -35,11 +35,16 @@ router.get(`/articles/:id`, ensureAuth, async (req, res) => {
 // @route       POST /articles
 router.post('/articles', ensureAuth, async (req, res) => {
 
+    let d = new Date(Date.now())
+    d = d.toString();
+    d = d.substring(0, d.length - 31);
+    console.log(d)
     let article = new Article({
         user: req.user.id,
         title: req.body.title,
         author: req.body.author,
-        body: req.body.body
+        body: req.body.body,
+        time: d
     })
     try {
 
