@@ -17,8 +17,8 @@ block Content
                     -new_str = new_str.length > 0 ? new_str : articlebody.substr(0, 100)
                     -articlebody = new_str + '...'
                 
-                .col.s12.m4
-                    .card.hoverable
+                .col.s12.m6
+                    .card.hoverable.exp-card
                         .card-image
                             - if (article.user._id.toString() == user._id.toString())
                                 a.btn-floating.halfway-fab.blue(href=`/articles/edit/${article._id}`)

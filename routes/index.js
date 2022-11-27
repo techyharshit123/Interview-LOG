@@ -43,8 +43,7 @@ router.get('/dashboard', ensureAuth, async (req, res) => {
 
     try {
         const articles = await Article.find({ user: req.user.id }).lean()
-        console.log(typeof articles);
-        // console.log(Article.find({ user: req.user._id }));
+
         res.render("dashboard", {
             layout: "main",
             name: req.user.firstName,

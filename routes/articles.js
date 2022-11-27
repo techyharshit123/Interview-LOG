@@ -38,7 +38,7 @@ router.post('/articles', ensureAuth, async (req, res) => {
     let d = new Date(Date.now())
     d = d.toString();
     d = d.substring(0, d.length - 31);
-    console.log(d)
+
     let article = new Article({
         user: req.user.id,
         title: req.body.title,
@@ -47,9 +47,7 @@ router.post('/articles', ensureAuth, async (req, res) => {
         time: d
     })
     try {
-
         article = await article.save()
-        console.log(article)
         res.redirect('/dashboard')
     }
     catch (err) {
@@ -124,7 +122,7 @@ router.delete('/articles/:id', ensureAuth, async (req, res) => {
 router.get('/articles/user/:userId', ensureAuth, async (req, res) => {
     try {
         let articles = await Article.find({ user: req.params.userId }).populate('user').lean();
-        console.log(articles)
+
         let userName = articles[0].author
         res.render('articles/userarticles', {
             articles,
